@@ -8,16 +8,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Resources\Images\Developer\My.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Convertors\" />
-    <Folder Include="UserControls\" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Resource Include="Resources\Images\Developer\My.jpg" />
+    <Folder Include="Controls\" />
+    <Folder Include="Models\" />
+    <Folder Include="Resources\Images\" />
   </ItemGroup>
 
 </Project>

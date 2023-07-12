@@ -1,0 +1,59 @@
+﻿<Window x:Class="BrokDesignerPro_2.Windows.BrokWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BrokDesignerPro_2.Windows"
+        xmlns:cc="clr-namespace:BrokDesignerPro_2.Controls"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        x:Name="wBrok"
+        Background="Transparent"
+        AllowsTransparency="True"
+        Width="{Binding
+        Source={x:Static SystemParameters.PrimaryScreenWidth}}"
+        Height="{Binding
+        Source={x:Static SystemParameters.PrimaryScreenHeight}}"
+        >
+    <Border
+        CornerRadius="10"
+        Background="{StaticResource bgMain}"
+        >
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+
+            <!--Status Bar And StatusBarItem-->
+            <cc:ccStatusBar Height="40" VerticalAlignment="Top" Grid.Row="0"
+                            Mouse.MouseDown="wBrok_MouseDown"
+                            >
+                <cc:ccStausBarItem Content="Brok" />
+            </cc:ccStatusBar>
+            <Grid Background="{StaticResource bgManuLeft}"
+                  Grid.Row="1"
+                  HorizontalAlignment="Left"
+                  >
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="200"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <cc:ccTabControl VerticalAlignment="Top" Grid.Row="1">
+                    <cc:ccTabItem Content="Home" Data="{StaticResource Home}"/>
+                    <cc:ccTabItem Content="Saved" Data="{StaticResource Saved}"/>
+                    <cc:ccTabItem Content="Discover" Data="{StaticResource Discover1}"/>
+                    <cc:ccTabItem Content="Friends" Data="{StaticResource Friends}"/>
+                    <cc:ccTabItem Content="Your List" Data="{StaticResource List}"/>
+                    <cc:ccTabItem Content="Movie" Data="{StaticResource Movie}"/>
+                    <cc:ccTabItem Content="Series" Data="{StaticResource Series}"/>
+                    <cc:ccTabItem Content="TV Show" Data="{StaticResource TvShow}"/>
+                </cc:ccTabControl>
+            </Grid>
+
+
+
+        </Grid>
+    </Border>
+</Window>
