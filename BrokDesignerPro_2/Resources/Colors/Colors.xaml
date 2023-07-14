@@ -8,4 +8,6 @@
     <SolidColorBrush x:Key="bgStatusBar" Color="#111113"/>
     <SolidColorBrush x:Key="bgStar" Color="#F6CC1F"/>
     <SolidColorBrush x:Key="bgStatusBarItem" Color="#171719"/>
+    <SolidColorBrush x:Key="bgButtonMovie" Color="#FCFFFF"/>
+
 </ResourceDictionary>

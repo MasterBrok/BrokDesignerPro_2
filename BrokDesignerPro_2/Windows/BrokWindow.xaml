@@ -25,13 +25,17 @@
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
             <!--Status Bar And StatusBarItem-->
             <cc:ccStatusBar Height="40" VerticalAlignment="Top" Grid.Row="0"
-                            Mouse.MouseDown="wBrok_MouseDown"
+                            Mouse.MouseDown="wBrok_MouseDown" Grid.ColumnSpan="2"
                             >
                 <cc:ccStausBarItem Content="Brok" />
             </cc:ccStatusBar>
+            <!--Menu-->
             <Grid Background="{StaticResource bgManuLeft}"
                   Grid.Row="1"
                   HorizontalAlignment="Left"
@@ -40,6 +44,7 @@
                     <RowDefinition Height="200"/>
                     <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
+                <cc:ccUserInfo Grid.Row="0"/>
                 <cc:ccTabControl VerticalAlignment="Top" Grid.Row="1">
                     <cc:ccTabItem Content="Home" Data="{StaticResource Home}"/>
                     <cc:ccTabItem Content="Saved" Data="{StaticResource Saved}"/>
@@ -51,9 +56,94 @@
                     <cc:ccTabItem Content="TV Show" Data="{StaticResource TvShow}"/>
                 </cc:ccTabControl>
             </Grid>
+            <Grid Grid.Row="1"
+                  Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="320"/>
+                </Grid.RowDefinitions>
 
+                <!--Menu Top-->
+                <DockPanel LastChildFill="False">
+                    <StackPanel DockPanel.Dock="Right"
+                                VerticalAlignment="Center"
+                                Margin="0 0 55 0"
+                                >
+                        <cc:ccTextBox Text="Brok"
+                                      />
+                    </StackPanel>
+                    <StackPanel
+                        Margin="0 0 50 0"
+                        VerticalAlignment="Center"
+                        DockPanel.Dock="Right"
+                        Orientation="Horizontal"
+                        >
+                        <cc:ccButton Geometry="{StaticResource Notification}"/>
+                        <cc:ccButton Geometry="{StaticResource Message}"/>
+                        <cc:ccButton
+                            IsShow="Hidden"
+                            Geometry="{StaticResource Setting}"/>
+                    </StackPanel>
+                </DockPanel>
+                <ScrollViewer
+                    x:Name="svItemsTop"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Disabled"
+                    Grid.Row="1"
+                    >
+                    <StackPanel
+                        x:Name="spTitleMovies"
+                        Loaded="spTitleMovies_Loaded"
+                        Orientation="Horizontal"
+                        VerticalAlignment="Center">
+                    </StackPanel>
+                </ScrollViewer>
 
+                <Grid Grid.Row="2">
+                    <DockPanel Margin="10,0,0,0" HorizontalAlignment="Left"
+                               LastChildFill="False">
+                        <Path Data="{StaticResource Ranking}" Fill="White"/>
+                        <Label Content="Top Movies" Foreground="White"
+                               VerticalContentAlignment="Center"
+                               FontFamily="{StaticResource Font1}"
+                               FontWeight="ExtraBlack"
+                               FontSize="23"
+                               />
+                    </DockPanel>
+                    <StackPanel Orientation="Horizontal"
+                                Margin="206,0,644,0">
+                        <cc:ccRepeatButton
+                            x:Name="crpLeft"
+                            Width="45"
+                            Height="50"
+                            Data="{StaticResource Left}"
+                            Click="crpLeft_Click"
+                            />
 
+                        <cc:ccRepeatButton
+                            x:Name="crpRight"
+                            Width="45"
+                            Height="50"
+                            Data="{StaticResource Right}"
+                            Click="crpRight_Click"
+                            />
+                    </StackPanel>
+                </Grid>
+                <ScrollViewer
+                    x:Name="svItems"
+                    HorizontalScrollBarVisibility="Hidden"
+                    VerticalScrollBarVisibility="Disabled"
+                    Grid.Row="3"
+                    >
+                    <StackPanel
+                        x:Name="spMovies"
+                        Loaded="spMovies_Loaded"
+                        Orientation="Horizontal" VerticalAlignment="Center">
+                    </StackPanel>
+                </ScrollViewer>
+            </Grid>
         </Grid>
     </Border>
 </Window>

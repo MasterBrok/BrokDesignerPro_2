@@ -2,6 +2,8 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="clr-namespace:BrokDesignerPro_2.Controls"
+    xmlns:models="clr-namespace:BrokDesignerPro_2.Models"
+    xmlns:data="clr-namespace:BrokDesignerPro_2.Data"
     >
 
 
@@ -69,7 +71,6 @@
             </Setter.Value>
         </Setter>
     </Style>
-
     <Style TargetType="{x:Type local:ccTabItem}">
         <Setter Property="Foreground" Value="WhiteSmoke"/>
         <Setter Property="Padding" Value="1"/>
@@ -80,7 +81,9 @@
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:ccTabItem}">
                     <Border x:Name="brdMain"
-                            BorderBrush="Transparent" BorderThickness="5 0 0 0" Background="Transparent">
+                            BorderBrush="Transparent" BorderThickness="5 0 0 0"
+                            ToolTip="{Binding ElementName=lblMain,Path=Content}"
+                            Background="Transparent">
                         <StackPanel Orientation="Horizontal" Margin="45 0 0 0" VerticalAlignment="Center">
                             <StackPanel.Resources>
                                 <Style TargetType="Path">
@@ -119,6 +122,193 @@
                             <Setter TargetName="phMain" Property="Fill" Value="Cyan"/>
                             <Setter TargetName="phMain" Property="Stroke" Value="Cyan"/>
                             <Setter TargetName="lblMain" Property="Foreground" Value="Cyan"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ccUserInfo}"
+           >
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccUserInfo}">
+                    <StackPanel Margin="0 10 0 0" Background="Transparent" ToolTip="Master Brok { Vip }">
+                        <StackPanel.Resources>
+                            <Style TargetType="Label">
+                                <Setter Property="Foreground" Value="WhiteSmoke"/>
+                                <Setter Property="FontFamily" Value="{DynamicResource Font1}"/>
+                                <Setter Property="FontWeight" Value="DemiBold"/>
+                            </Style>
+                        </StackPanel.Resources>
+                        <Ellipse VerticalAlignment="Top"
+                                 HorizontalAlignment="Center"
+                                 Width="80"
+                                 Height="80"
+                                 Stroke="White"
+                                 StrokeDashArray="5"
+                                 >
+                            <Ellipse.Fill>
+                                <ImageBrush Stretch="UniformToFill" ImageSource="C:\Users\ManTech\Desktop\WPF(C#)\MyProjectWPF\BrokDesignerPro_2\BrokDesignerPro_2\Resources\Images\Developer\My.jpg"/>
+                            </Ellipse.Fill>
+                        </Ellipse>
+                        <Label Content="Brok" FontSize="12"  HorizontalContentAlignment="Center"/>
+                        <Label Content="Vip" FontWeight="Heavy" FontSize="8" HorizontalContentAlignment="Center"/>
+                    </StackPanel>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ccButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccButton}" >
+                    <Border
+                        x:Name="brdMain"
+                        Background="Transparent"
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        CornerRadius="50"
+                        Margin="5 0 5 0"
+                        >
+                        <StackPanel Margin="4">
+                            <Path Data="{TemplateBinding Geometry}"
+                                  Fill="White"
+                                  Margin="5"
+                                  Stroke="White" StrokeThickness="1"
+                                  Stretch="Uniform"
+                                  Width="30"
+                                  Height="30"
+                                  VerticalAlignment="Center"
+                                  />
+                            <Ellipse Width="9" Height="9"
+                                     Fill="Red"
+                                     Visibility="{TemplateBinding IsShow}"
+                                     Margin="0 -10 5 0"
+                                     VerticalAlignment="Top"
+                                     HorizontalAlignment="Right"/>
+                        </StackPanel>
+                    </Border >
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter
+                                TargetName="brdMain"
+                                Property="Opacity" Value="0.7"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ccTextBox}">
+
+        <Setter Property="Width" Value="300"/>
+        <Setter Property="Height" Value="40"/>
+        <Setter Property="SelectionBrush" Value="Transparent"/>
+        <Setter Property="Foreground" >
+            <Setter.Value>
+                <LinearGradientBrush>
+                    <GradientStop Color="LightSalmon" Offset="0.7"/>
+                    <GradientStop Color="SkyBlue" Offset="0.5"/>
+                    <GradientStop Color="LightCoral" Offset="0.3"/>
+                </LinearGradientBrush>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="FontFamily" Value="{DynamicResource Font1}"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+        <Setter Property="Padding" Value="3 1 0 1"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccTextBox}">
+                    <Border
+                        BorderBrush="White"
+                        BorderThickness="1"
+                        Background="Transparent"
+                        CornerRadius="10">
+                        <ScrollViewer x:Name="PART_ContentHost"
+                                      VerticalScrollBarVisibility="Hidden"
+                                      HorizontalScrollBarVisibility="Hidden"
+                                      VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"
+                                      HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}"
+                                      />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ccMovie}">
+        <Setter Property="Width" Value="190"/>
+        <Setter Property="Height" Value="300"/>
+        <Setter Property="DataContext" Value="{x:Type models:Movie}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccMovie}">
+                    <Border Background="Transparent" ToolTip="{Binding Title}">
+                        <StackPanel>
+                            <Border Height="250"
+                                    CornerRadius="30"
+                                    >
+                                <Border.Background>
+                                    <ImageBrush
+                                        Stretch="Uniform"
+                                        ImageSource="{Binding Image}"/>
+                                </Border.Background>
+                            </Border>
+                            <Grid>
+                                <Grid.Resources>
+                                    <Style TargetType="TextBlock">
+                                        <Setter Property="Foreground" Value="White"/>
+                                        <Setter Property="FontFamily" Value="{DynamicResource Font2}"/>
+                                        <Setter Property="FontWeight" Value="SemiBold"/>
+                                        <Setter Property="Margin" Value="7 2 0 0"/>
+                                        <Setter Property="FontSize" Value="15"/>
+                                        <Setter Property="HorizontalAlignment" Value="Left"/>
+                                    </Style>
+                                </Grid.Resources>
+                                <StackPanel VerticalAlignment="Bottom">
+                                    <TextBlock
+                                        TextWrapping="Wrap"
+                                        Text="{Binding Title}" />
+                                    <TextBlock
+                                        Text="{Binding Date}" FontWeight="Light" FontSize="10"/>
+                                </StackPanel>
+                                <Border
+                                    Margin="0 0 11 16"
+                                    HorizontalAlignment="Right"
+                                    Width="60" Height="25"
+                                    CornerRadius="15"
+                                    Background="{DynamicResource bgManuLeft}"
+                                    >
+                                    <StackPanel Orientation="Horizontal">
+                                        <Path HorizontalAlignment="Left" Margin="8 0 0 0" Data="{DynamicResource Star}" Fill="Gold" Stroke="Gold" Stretch="Uniform" Width="20" Height="20"/>
+                                        <TextBlock Text="{Binding Rate}" Margin="10 0 0 0" FontSize="10" VerticalAlignment="Center"/>
+                                    </StackPanel>
+                                </Border>
+                            </Grid>
+                        </StackPanel>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    <Style TargetType="{x:Type local:ccRepeatButton}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:ccRepeatButton}">
+                    <Border x:Name="brdMain" Opacity="1" Background="Transparent">
+                        <Path  Data="{TemplateBinding Data}"
+                              Stroke="White"
+                              VerticalAlignment="Center"
+                              HorizontalAlignment="Center"
+                              StrokeThickness="2"
+                              Fill="White"
+                              >
+                        </Path>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Opacity" Value="0.7"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>

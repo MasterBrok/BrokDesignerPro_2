@@ -9,15 +9,34 @@
 
   <ItemGroup>
     <None Remove="Resources\Images\Developer\My.jpg" />
+    <None Remove="Resources\Images\Movies\Asteroid City.jpg" />
+    <None Remove="Resources\Images\Movies\Barbie.jpg" />
+    <None Remove="Resources\Images\Movies\Guardians of the Galaxy.jpg" />
+    <None Remove="Resources\Images\Movies\Rise of the Beasts .jpg" />
+    <None Remove="Resources\Images\Movies\Super Mario movie .jpeg" />
+    <None Remove="Resources\Images\Movies\The Out-Laws.jpg" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Convertors\" />
-    <Folder Include="UserControls\" />
+    <Resource Include="Resources\Images\Movies\Super Mario movie .jpeg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Images\Movies\Guardians of the Galaxy.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </Resource>
   </ItemGroup>
 
   <ItemGroup>
     <Resource Include="Resources\Images\Developer\My.jpg" />
+    <Resource Include="Resources\Images\Movies\Asteroid City.jpg" />
+    <Resource Include="Resources\Images\Movies\Barbie.jpg" />
+    <Resource Include="Resources\Images\Movies\Rise of the Beasts .jpg" />
+    <Resource Include="Resources\Images\Movies\The Out-Laws.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Images\NewMovie\" />
   </ItemGroup>
 
 </Project>

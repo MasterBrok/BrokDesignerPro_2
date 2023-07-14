@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BrokDesignerPro_2.Controls;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace BrokDesignerPro_2.Windows
 {
@@ -29,6 +19,35 @@ namespace BrokDesignerPro_2.Windows
         {
             if (e.LeftButton == MouseButtonState.Pressed)
                 DragMove();
+        }
+
+        private void spMovies_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (var movie in new Data.Data().Movies)
+            {
+                ccMovie element = new ccMovie() { DataContext = movie};
+                spMovies.Children.Add(element);
+            }
+        }
+
+        private void crpRight_Click(object sender, RoutedEventArgs e)
+        {
+            svItems.LineRight();
+
+        }
+
+        private void crpLeft_Click(object sender, RoutedEventArgs e)
+        {
+            svItems.LineLeft();
+        }
+
+        private void spTitleMovies_Loaded(object sender, RoutedEventArgs e)
+        {
+            foreach (var movie in new Data.Data().Movies)
+            {
+                ccMovie element = new ccMovie() { DataContext = movie };
+                spTitleMovies.Children.Add(element);
+            }
         }
     }
 }
