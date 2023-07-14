@@ -46,7 +46,7 @@
                 </Grid.RowDefinitions>
                 <cc:ccUserInfo Grid.Row="0"/>
                 <cc:ccTabControl VerticalAlignment="Top" Grid.Row="1">
-                    <cc:ccTabItem Content="Home" Data="{StaticResource Home}"/>
+                    <cc:ccTabItem Content="Home"  Data="{StaticResource Home}"/>
                     <cc:ccTabItem Content="Saved" Data="{StaticResource Saved}"/>
                     <cc:ccTabItem Content="Discover" Data="{StaticResource Discover1}"/>
                     <cc:ccTabItem Content="Friends" Data="{StaticResource Friends}"/>
@@ -59,14 +59,13 @@
             <Grid Grid.Row="1"
                   Grid.Column="1">
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="80"/>
-                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="63"/>
+                    <RowDefinition/>
                     <RowDefinition Height="50"/>
                     <RowDefinition Height="320"/>
                 </Grid.RowDefinitions>
-
                 <!--Menu Top-->
-                <DockPanel LastChildFill="False">
+                <DockPanel LastChildFill="False" >
                     <StackPanel DockPanel.Dock="Right"
                                 VerticalAlignment="Center"
                                 Margin="0 0 55 0"
@@ -80,8 +79,10 @@
                         DockPanel.Dock="Right"
                         Orientation="Horizontal"
                         >
-                        <cc:ccButton Geometry="{StaticResource Notification}"/>
-                        <cc:ccButton Geometry="{StaticResource Message}"/>
+                        <cc:ccButton
+                            Geometry="{StaticResource Notification}"/>
+                        <cc:ccButton
+                            Geometry="{StaticResource Message}"/>
                         <cc:ccButton
                             IsShow="Hidden"
                             Geometry="{StaticResource Setting}"/>
@@ -100,7 +101,6 @@
                         VerticalAlignment="Center">
                     </StackPanel>
                 </ScrollViewer>
-
                 <Grid Grid.Row="2">
                     <DockPanel Margin="10,0,0,0" HorizontalAlignment="Left"
                                LastChildFill="False">

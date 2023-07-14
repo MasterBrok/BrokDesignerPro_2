@@ -43,7 +43,7 @@ namespace BrokDesignerPro_2.Windows
 
         private void spTitleMovies_Loaded(object sender, RoutedEventArgs e)
         {
-            foreach (var movie in new Data.Data().Movies)
+            foreach (var movie in new Data.Data().NewMovie)
             {
                 ccMovie element = new ccMovie() { DataContext = movie };
                 spTitleMovies.Children.Add(element);

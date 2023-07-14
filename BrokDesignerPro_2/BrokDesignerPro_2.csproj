@@ -12,12 +12,20 @@
     <None Remove="Resources\Images\Movies\Asteroid City.jpg" />
     <None Remove="Resources\Images\Movies\Barbie.jpg" />
     <None Remove="Resources\Images\Movies\Guardians of the Galaxy.jpg" />
+    <None Remove="Resources\Images\Movies\Insidious The Red Door.jpg" />
     <None Remove="Resources\Images\Movies\Rise of the Beasts .jpg" />
     <None Remove="Resources\Images\Movies\Super Mario movie .jpeg" />
     <None Remove="Resources\Images\Movies\The Out-Laws.jpg" />
+    <None Remove="Resources\Images\NewMovie\Celebrity Sex Tape.jpg" />
+    <None Remove="Resources\Images\NewMovie\Mr. Car and the Knights Templar.jpg" />
+    <None Remove="Resources\Images\NewMovie\Shrek 2.jpg" />
+    <None Remove="Resources\Images\NewMovie\Sonic Prime.jpg" />
+    <None Remove="Resources\Images\NewMovie\Sound of Freedom.jpg" />
+    <None Remove="Resources\Images\NewMovie\The Flash.jpg" />
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="Resources\Images\Movies\Insidious The Red Door.jpg" />
     <Resource Include="Resources\Images\Movies\Super Mario movie .jpeg" />
   </ItemGroup>
 
@@ -33,10 +41,12 @@
     <Resource Include="Resources\Images\Movies\Barbie.jpg" />
     <Resource Include="Resources\Images\Movies\Rise of the Beasts .jpg" />
     <Resource Include="Resources\Images\Movies\The Out-Laws.jpg" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Resources\Images\NewMovie\" />
+    <Resource Include="Resources\Images\NewMovie\Celebrity Sex Tape.jpg" />
+    <Resource Include="Resources\Images\NewMovie\Mr. Car and the Knights Templar.jpg" />
+    <Resource Include="Resources\Images\NewMovie\Shrek 2.jpg" />
+    <Resource Include="Resources\Images\NewMovie\Sonic Prime.jpg" />
+    <Resource Include="Resources\Images\NewMovie\Sound of Freedom.jpg" />
+    <Resource Include="Resources\Images\NewMovie\The Flash.jpg" />
   </ItemGroup>
 
 </Project>
