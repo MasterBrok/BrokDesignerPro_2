@@ -5,8 +5,6 @@
     xmlns:models="clr-namespace:BrokDesignerPro_2.Models"
     xmlns:data="clr-namespace:BrokDesignerPro_2.Data"
     >
-
-
     <Style TargetType="{x:Type local:ccStatusBar}">
         <Setter Property="Height" Value="50"/>
         <Setter Property="Background" Value="{DynamicResource bgStatusBar}"/>
@@ -97,7 +95,7 @@
                             </StackPanel.Resources>
                             <Path
                                 x:Name="phMain"
-                                Data="{TemplateBinding Data}" />
+                                Data="{TemplateBinding Data}" StrokeThickness=".2" Width="20"/>
                             <Label
                                 x:Name="lblMain"
                                 Content="{TemplateBinding Content}"
